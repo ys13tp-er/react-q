@@ -1,0 +1,46 @@
+<template name="Search">
+    <div className={ this.state.bool?'weui-search-bar weui-search-bar_focusing':'weui-search-bar' } id="searchBar">
+        <form className="weui-search-bar__form">
+            <div className="weui-search-bar__box">
+                <i className="weui-icon-search"></i>
+                <input type="search" className="weui-search-bar__input" id="searchInput" placeholder="搜索" required="" />
+                <a href="javascript:" className="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label onClick={this.showInput.bind(this)} className="weui-search-bar__label" id="searchText">
+                <i className="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a onClick={this.hideInput.bind(this)} href="javascript:" className="weui-search-bar__cancel-btn"
+            id="searchCancel">取消</a>
+        <button onClick={this.hideInput.bind(this)}>ok</button>
+    </div>
+</template>
+<script>
+    export default class {
+        constructor(props) {
+            super(props)
+            this.state = {
+                bool: false
+            }
+        }
+        showInput() {
+            this.setState({
+                bool: true
+            })
+        }
+        hideInput() {
+            this.setState({
+                bool: false
+            })
+        }
+        componentDidMount() { }
+    }
+</script>
+<style lang="scss">
+    weui-search-bar__label {
+        transform-origin: 0px 0px;
+        opacity: 1;
+        transform: scale(1, 1)
+    }
+</style>

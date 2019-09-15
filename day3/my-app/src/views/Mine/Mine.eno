@@ -1,0 +1,29 @@
+<template name="Mine">
+    <div>
+        <p>Mine页面</p>
+        <button onClick={this.navTo.bind(this)}>Topic</button>
+    </div>
+</template>
+<script>
+    export default class {
+        constructor(props) {
+            super(props)
+            this.state = {
+                title: "react"
+            }
+        }
+        // 编程式导航
+        navTo() {
+            console.log(1)
+            this.props.location.push('/topic')
+        }
+        componentDidMount() {
+            console.log(this.props.match.params.id)
+        }
+    }
+</script>
+<style>
+    p {
+        color: red
+    }
+</style>
